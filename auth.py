@@ -12,7 +12,6 @@ def set_background():
     """
     Finds 'background.jpg' in the main folder and sets it as the app background.
     """
-    # Get the path to the image relative to this file
     current_dir = os.path.dirname(os.path.abspath(__file__))
     bg_image_path = os.path.join(current_dir, "background.jpg")
 
@@ -20,7 +19,6 @@ def set_background():
         with open(bg_image_path, "rb") as f:
             data = f.read()
         
-        # Convert image to Base64 string
         bin_str = base64.b64encode(data).decode()
         
         # Inject CSS
@@ -28,18 +26,19 @@ def set_background():
         <style>
         .stApp {{
             background-image: url("data:image/jpg;base64,{bin_str}");
-            background-size: cover;
-            background-position: center;
+            background-position: center center;
             background-repeat: no-repeat;
             background-attachment: fixed;
+            background-size: cover;
         }}
         
-        /* Make the main content background semi-transparent white so text is readable */
+        /* White box for content readability */
         .block-container {{
             background-color: rgba(255, 255, 255, 0.85);
             padding: 2rem;
             border-radius: 10px;
             margin-top: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }}
         </style>
         """
