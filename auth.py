@@ -40,6 +40,16 @@ def set_background():
             margin-top: 2rem;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }}
+        
+        /* --- FORCE TEXT COLOR TO BLACK --- */
+        h1, h2, h3, h4, h5, h6, p, div, span, label, .stMarkdown {{
+            color: black !important;
+        }}
+        
+        /* Fix for input fields to ensure they are visible */
+        .stTextInput input {{
+            color: black !important;
+        }}
         </style>
         """
         st.markdown(page_bg_img, unsafe_allow_html=True)
